@@ -27,7 +27,7 @@
     <nav class="navbar navbar-expand-md fixed-top navbarBG navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
-                <img src="img/MspectreMark.svg" height="24" class="d-inline-block align-text-top">
+                <img src="img/favicon-32x32.png" height="24" class="d-inline-block align-text-top">
                 Rewind</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,31 +56,45 @@
         <div class="container px-5">
             <h2 class="border-1 border-bottom border-dark">The Code</h2>
             <div class="row">
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6"></div>
+                <p>The code takes the users input and reverses it.</p>
+                <div class="col-12 col-lg-10">
                     <pre class="line-numbers">
                         <code class="language-js">
-// display a message to the user
-function getMessage() {
+//pull value from the page
+function getValues() {
+let userString = document.getElementById("revString").value;
 
-let userMessage = document.getElementById("message").value;
+//call reverse a string
+let revString = reverseAString(userString);
 
-Swal.fire(
-'The App Title ',
-userMessage,
-'question'
-);
+//display the reversed string
+displayData(revString);
+}
+
+//this is our generate data function
+function reverseAString(userString) {
+
+let revString = "";
+
+for (let index = userString.length - 1; index >= 0; index--) {
+revString += userString[index];
+}
+
+return revString;
+}
 
 
-console.log(userMessage);
-}                      
+//display out reversed strinf to the page
+function displayData(revString) {
+
+document.getElementById("msg").innerHTML = `Your String reversed is: ${revString}`;
+document.getElementById("alert").classList.remove('d-none');
+
+}
 </code>
                     </pre>
                 </div>
-                <div class="col-12 col-lg-6"></div>
-                <p>The code is structured in one function. It accesses the user's input then displays a Sweetheart alert
-                    window.</p>
-                <h4>getMessage</h4>
-                <p>Prints the user's inputted message.</p>
             </div>
         </div>
     </main>
@@ -94,23 +108,18 @@ console.log(userMessage);
                     </div>
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
-                    <img src="img/MarkSpectre_WhtLogo.svg" alt="mark spectre logo" height="24">
+                    <img src="img/CM-WHTLogo-2.png" alt="mark spectre logo" height="24">
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row">
                         <div class="col social">
-                            <a href="#">
+                            <a href="https://www.linkedin.com/in/christopher-miller-profile/">
                                 <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
                             </a>
                         </div>
                         <div class="col social">
-                            <a href="#">
+                            <a href="https://github.com/chriskmil">
                                 <i class="fab fa-github fa-2x" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                        <div class="col social">
-                            <a href="#">
-                                <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
